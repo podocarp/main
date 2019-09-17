@@ -2,7 +2,10 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+<<<<<<< HEAD
+=======
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+>>>>>>> tutorial-adding-command
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -20,7 +23,10 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Address;
+<<<<<<< HEAD
+=======
 import seedu.address.model.person.Remark;
+>>>>>>> tutorial-adding-command
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -39,12 +45,19 @@ public class EditCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
+<<<<<<< HEAD
+            + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_TAG + "TAG]...\n"
+            + "Example: " + COMMAND_WORD + " 1 "
+            + PREFIX_PHONE + "91234567 ";
+=======
             + "[" + PREFIX_REMARK + "REMARK] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_REMARK + "johndoe@example.com";
+>>>>>>> tutorial-adding-command
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -95,11 +108,18 @@ public class EditCommand extends Command {
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
+<<<<<<< HEAD
+        Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+
+        return new Person(updatedName, updatedPhone, updatedAddress, updatedTags);
+=======
         Remark updatedRemark = editPersonDescriptor.getRemark().orElse(personToEdit.getRemark());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedRemark, updatedAddress, updatedTags);
+>>>>>>> tutorial-adding-command
     }
 
     @Override
@@ -127,7 +147,10 @@ public class EditCommand extends Command {
     public static class EditPersonDescriptor {
         private Name name;
         private Phone phone;
+<<<<<<< HEAD
+=======
         private Remark remark;
+>>>>>>> tutorial-adding-command
         private Address address;
         private Set<Tag> tags;
 
@@ -140,7 +163,10 @@ public class EditCommand extends Command {
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
             setPhone(toCopy.phone);
+<<<<<<< HEAD
+=======
             setRemark(toCopy.remark);
+>>>>>>> tutorial-adding-command
             setAddress(toCopy.address);
             setTags(toCopy.tags);
         }
@@ -149,7 +175,11 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
+<<<<<<< HEAD
+            return CollectionUtil.isAnyNonNull(name, phone, address, tags);
+=======
             return CollectionUtil.isAnyNonNull(name, phone, remark, address, tags);
+>>>>>>> tutorial-adding-command
         }
 
         public void setName(Name name) {
@@ -168,6 +198,8 @@ public class EditCommand extends Command {
             return Optional.ofNullable(phone);
         }
 
+<<<<<<< HEAD
+=======
         public void setRemark(Remark remark) {
             this.remark = remark;
         }
@@ -176,6 +208,7 @@ public class EditCommand extends Command {
             return Optional.ofNullable(remark);
         }
 
+>>>>>>> tutorial-adding-command
         public void setAddress(Address address) {
             this.address = address;
         }
@@ -218,7 +251,10 @@ public class EditCommand extends Command {
 
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
+<<<<<<< HEAD
+=======
                     && getRemark().equals(e.getRemark())
+>>>>>>> tutorial-adding-command
                     && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags());
         }

@@ -3,7 +3,10 @@ package seedu.address.model.person;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+<<<<<<< HEAD
+=======
 import static seedu.address.logic.commands.CommandTestUtil.VALID_REMARK_BOB;
+>>>>>>> tutorial-adding-command
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -32,8 +35,13 @@ public class PersonTest {
         // null -> returns false
         assertFalse(ALICE.isSamePerson(null));
 
+<<<<<<< HEAD
+        // different phone -> returns false
+        Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
+=======
         // different phone and remark -> returns false
         Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withRemark(VALID_REMARK_BOB).build();
+>>>>>>> tutorial-adding-command
         assertFalse(ALICE.isSamePerson(editedAlice));
 
         // different name -> returns false
@@ -41,6 +49,12 @@ public class PersonTest {
         assertFalse(ALICE.isSamePerson(editedAlice));
 
         // same name, same phone, different attributes -> returns true
+<<<<<<< HEAD
+        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+        assertTrue(ALICE.isSamePerson(editedAlice));
+
+        // same name, same phone, different attributes -> returns true
+=======
         editedAlice = new PersonBuilder(ALICE).withRemark(VALID_REMARK_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
@@ -51,6 +65,7 @@ public class PersonTest {
         assertTrue(ALICE.isSamePerson(editedAlice));
 
         // same name, same phone, same remark, different attributes -> returns true
+>>>>>>> tutorial-adding-command
         editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
     }
@@ -81,10 +96,13 @@ public class PersonTest {
         editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
+<<<<<<< HEAD
+=======
         // different remark -> returns false
         editedAlice = new PersonBuilder(ALICE).withRemark(VALID_REMARK_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
+>>>>>>> tutorial-adding-command
         // different address -> returns false
         editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
         assertFalse(ALICE.equals(editedAlice));

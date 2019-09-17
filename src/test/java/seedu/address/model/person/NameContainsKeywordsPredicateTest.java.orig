@@ -81,11 +81,29 @@ public class NameContainsKeywordsPredicateTest {
 
         // Non-matching keyword
         predicate = new NameContainsKeywordsPredicate(Arrays.asList("Carol"));
+<<<<<<< HEAD
+        assertFalse(
+            predicate.test(new PersonBuilder().withName("Alice Bob").build())
+        );
+
+        // Keywords match phone, and address, but does not match name
+        predicate = new NameContainsKeywordsPredicate(Arrays.asList("12345", "Main", "Street"));
+        assertFalse(
+            predicate.test(
+                new PersonBuilder()
+                    .withName("Alice")
+                    .withPhone("12345")
+                    .withAddress("Main Street")
+                    .build()
+            )
+        );
+=======
         assertFalse(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
 
         // Keywords match phone, remark and address, but does not match name
         predicate = new NameContainsKeywordsPredicate(Arrays.asList("12345", "alice@remark.com", "Main", "Street"));
         assertFalse(predicate.test(new PersonBuilder().withName("Alice").withPhone("12345")
                 .withRemark("alice@remark.com").withAddress("Main Street").build()));
+>>>>>>> tutorial-adding-command
     }
 }

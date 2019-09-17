@@ -11,7 +11,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
+<<<<<<< HEAD
+=======
 import seedu.address.model.person.Remark;
+>>>>>>> tutorial-adding-command
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -25,7 +28,10 @@ class JsonAdaptedPerson {
 
     private final String name;
     private final String phone;
+<<<<<<< HEAD
+=======
     private final String remark;
+>>>>>>> tutorial-adding-command
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
@@ -33,12 +39,23 @@ class JsonAdaptedPerson {
     * Constructs a {@code JsonAdaptedPerson} with the given person details.
     */
     @JsonCreator
+<<<<<<< HEAD
+    public JsonAdaptedPerson(
+        @JsonProperty("name") String name,
+        @JsonProperty("phone") String phone,
+        @JsonProperty("address") String address,
+        @JsonProperty("tagged") List<JsonAdaptedTag> tagged
+    ) {
+        this.name = name;
+        this.phone = phone;
+=======
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("remark") String remark, @JsonProperty("address") String address,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.remark = remark;
+>>>>>>> tutorial-adding-command
         this.address = address;
         if (tagged != null) {
             this.tagged.addAll(tagged);
@@ -51,7 +68,10 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(Person source) {
         name = source.getName().fullName;
         phone = source.getPhone().value;
+<<<<<<< HEAD
+=======
         remark = source.getRemark().value;
+>>>>>>> tutorial-adding-command
         address = source.getAddress().value;
         tagged.addAll(
             source.getTags()
@@ -98,6 +118,8 @@ class JsonAdaptedPerson {
         }
         final Phone modelPhone = new Phone(phone);
 
+<<<<<<< HEAD
+=======
         if (remark == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
         }
@@ -106,6 +128,7 @@ class JsonAdaptedPerson {
         }
         final Remark modelRemark = new Remark(remark);
 
+>>>>>>> tutorial-adding-command
         if (address == null) {
             throw new IllegalValueException(
                 String.format(
@@ -120,6 +143,10 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
+<<<<<<< HEAD
+        return new Person(modelName, modelPhone, modelAddress, modelTags);
+=======
         return new Person(modelName, modelPhone, modelRemark, modelAddress, modelTags);
+>>>>>>> tutorial-adding-command
     }
 }

@@ -10,7 +10,10 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
+<<<<<<< HEAD
+=======
 import seedu.address.model.person.Remark;
+>>>>>>> tutorial-adding-command
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -79,8 +82,10 @@ public class ParserUtil {
         }
         return new Address(trimmedAddress);
     }
-    
+
     /**
+<<<<<<< HEAD
+=======
      * Parses a {@code String remark} into an {@code Remark}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -96,6 +101,7 @@ public class ParserUtil {
     }
 
     /**
+>>>>>>> tutorial-adding-command
      * Parses a {@code String tag} into a {@code Tag}.
      * Leading and trailing whitespaces will be trimmed.
      *
